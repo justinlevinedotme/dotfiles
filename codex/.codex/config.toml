@@ -1,0 +1,95 @@
+# ===========================================
+# Codex config.toml
+# ===========================================
+
+# Default model
+model = "gpt-5.1-codex-max"
+model_reasoning_effort = "medium"
+
+# -------------------------------------------
+# Notices / migration prompts
+# -------------------------------------------
+[notice]
+hide_gpt5_1_migration_prompt = true
+"hide_gpt-5.1-codex-max_migration_prompt" = true
+
+# ===========================================
+# MCP Servers
+# ===========================================
+
+# -------------------------------------------
+# Context7 (docs / context helper)
+# Requires: export CONTEXT7_API_KEY="ctx7sk-..."
+# -------------------------------------------
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]
+env = { CONTEXT7_API_KEY = "${env:CONTEXT7_API_KEY}" }
+startup_timeout_sec = 20
+tool_timeout_sec = 60
+enabled = true
+
+# -------------------------------------------
+# shadcn MCP
+# -------------------------------------------
+[mcp_servers.shadcn]
+command = "npx"
+args = ["shadcn@latest", "mcp"]
+startup_timeout_sec = 20
+tool_timeout_sec = 60
+enabled = true
+
+# -------------------------------------------
+# Vercel MCP (remote)
+# -------------------------------------------
+[mcp_servers.vercel]
+command = "npx"
+args = ["mcp-remote", "https://mcp.vercel.com"]
+startup_timeout_sec = 20
+tool_timeout_sec = 60
+enabled = true
+
+# -------------------------------------------
+# GitHub Copilot MCP (HTTP server)
+# Requires: export GITHUB_PERSONAL_ACCESS_TOKEN="<your PAT>"
+# -------------------------------------------
+[mcp_servers.github]
+type = "http"
+url = "https://api.githubcopilot.com/mcp/"
+
+[mcp_servers.github.headers]
+Authorization = "Bearer ${env:GITHUB_PERSONAL_ACCESS_TOKEN}"
+
+# Optional timeouts for HTTP MCP
+[mcp_servers.github.timeouts]
+startup_timeout_sec = 20
+tool_timeout_sec = 60
+
+# ===========================================
+# Trusted Projects
+# ===========================================
+[projects]
+
+[projects."/Users/jstn"]
+trust_level = "trusted"
+
+[projects."/Users/jstn/Documents/GitHub"]
+trust_level = "trusted"
+
+[projects."/Users/jstn/Documents/GitHub/FMMLoader-26"]
+trust_level = "trusted"
+
+[projects."/Users/jstn/Documents/GitHub/FMMLoader-Docs"]
+trust_level = "trusted"
+
+[projects."/Users/jstn/Documents/GitHub/fmmloader-docs"]
+trust_level = "trusted"
+
+[projects."/Users/jstn/Documents/GitHub/modloader-docs"]
+trust_level = "trusted"
+
+[projects."/Users/jstn/Documents/GitHub/docs-template"]
+trust_level = "trusted"
+
+[projects."/Users/jstn/Downloads/ui-main"]
+trust_level = "trusted"
