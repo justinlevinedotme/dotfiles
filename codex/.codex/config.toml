@@ -56,14 +56,7 @@ enabled = true
 [mcp_servers.github]
 type = "http"
 url = "https://api.githubcopilot.com/mcp/"
-
-[mcp_servers.github.headers]
-Authorization = "Bearer ${env:GITHUB_PERSONAL_ACCESS_TOKEN}"
-
-# Optional timeouts for HTTP MCP
-[mcp_servers.github.timeouts]
-startup_timeout_sec = 20
-tool_timeout_sec = 60
+env = { GITHUB_PERSONAL_ACCESS_TOKEN = "${env:GITHUB_PERSONAL_ACCESS_TOKEN}" } 
 
 # ===========================================
 # Trusted Projects
