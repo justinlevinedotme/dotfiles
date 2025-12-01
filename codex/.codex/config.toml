@@ -66,3 +66,9 @@ trust_level = "trusted"
 
 [projects."/Users/jstn/Downloads/ui-main"]
 trust_level = "trusted"
+
+[projects."/Users/jstn/Documents/GitHub/tauri-plugin-macos-permissions"]
+trust_level = "trusted"
+
+[projects."/Users/jstn/Documents/GitHub/flagsrc-colors"]
+trust_level = "trusted"

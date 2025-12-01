@@ -1,10 +1,4 @@
-###############################################
-#        Powerlevel10k Instant Prompt
-###############################################
-# Keep this at the very top for performance
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+
 
 
 ###############################################
@@ -14,8 +8,11 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
 
-# Using your minimal Vercel P10k theme
-ZSH_THEME="powerlevel10k/powerlevel10k"
+
+export DOCKER_SOCK="/Users/jstn/.docker/run/docker.sock"
+docker() {
+  command docker "$@" 2>/dev/null
+}
 
 plugins=(
   git
@@ -31,9 +28,11 @@ plugins=(
   yarn
   rust
   docker
+  docker
   bgnotify
+  zoxide
 )
-
+export ZOXIDE_CMD_OVERRIDE=cd
 source $ZSH/oh-my-zsh.sh
 
 
@@ -80,16 +79,8 @@ setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 
 
-###############################################
-#                Powerlevel10k
-###############################################
-
-# Your theme config file
-if [[ -f "$HOME/.p10k.zsh" ]]; then
-  source "$HOME/.p10k.zsh"
-fi
-
-
+# Oh My Posh init
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.json)"
 ###############################################
 #        Local Overrides (Not in Git)
 ###############################################
