@@ -1,0 +1,105 @@
+add_newline = true
+
+# Vercel-style layout: directory → git → prompt
+format = """\
+$directory$git_branch$git_status
+$character\
+"""
+
+continuation_prompt = "… "
+[character]
+success_symbol = "[ 󰘍](bold white) "
+error_symbol = "[](bold red) "
+
+# ─────────── Hostname (clean / subtle) ───────────
+[hostname]
+ssh_only = true
+format = "[$hostname](fg:#999999) "
+disabled = false
+
+# ─────────── Directory (Vercel-black + sharp edges) ───────────
+[directory]
+style = "bold fg:#ffffff"
+format = "[$path]($style) "
+truncation_length = 3
+truncate_to_repo = true
+read_only = " "
+read_only_style = "fg:#777777"
+
+# ─────────── Git Branch (clean, gray, subtle) ───────────
+[git_branch]
+symbol = " "
+format = "[$symbol$branch](fg:#999999) "
+truncation_length = 15
+truncation_symbol = ""
+
+# ─────────── Git Status (simple, monochrome) ───────────
+[git_status]
+style = "fg:#666666"
+format = "([$all_status$ahead_behind]($style)) "
+
+# ─────────── Git State (rebase/merge indicators) ───────────
+[git_state]
+format = "([$state( $progress_current of $progress_total)])(fg:#888888) "
+
+# ─────────── Command Duration (subtle right-aligned utility) ───────────
+[cmd_duration]
+min_time = 200
+format = "[⏱ $duration](fg:#777777) "
+
+# ─────────—— Language Runtimes (show only when needed) ─────────——
+[nodejs]
+format = "node $version "
+style = "fg:#999999"
+
+[python]
+format = "py $version "
+style = "fg:#999999"
+
+[rust]
+format = "rust $version "
+style = "fg:#999999"
+
+[golang]
+format = "go $version "
+style = "fg:#999999"
+
+# All other languages are disabled for Vercel minimalism.
+# Enable only what you actually use.
+
+[docker_context]
+symbol = " "
+format = "docker "
+style = "fg:#888888"
+
+[kubernetes]
+disabled = true
+
+# ─────────── OS/Status/etc (disabled by default for minimal look) ───────────
+[aws]
+disabled = true
+[gcloud]
+disabled = true
+[azure]
+disabled = true
+[battery]
+disabled = true
+[memory_usage]
+disabled = true
+[package]
+disabled = true
+[shell]
+disabled = true
+[status]
+disabled = false
+format = "[✘ $status](fg:#ff5555) "
+
+[jobs]
+disabled = false
+style = "fg:#777777"
+symbol = "• "
+
+[container]
+disabled = true
+[sudo]
+disabled = true

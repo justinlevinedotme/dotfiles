@@ -61,6 +61,7 @@ if [ -x "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" ]
   export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 fi
 
+
 ###############################################
 #                   Golang (optional)
 ###############################################

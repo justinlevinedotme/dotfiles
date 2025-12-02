@@ -123,6 +123,8 @@ alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias o.="open ."
 alias code.="code ."
 
+# Open current folder in Zed
+alias zed="zed ."
 # Quick server
 alias serve="python3 -m http.server"
 
