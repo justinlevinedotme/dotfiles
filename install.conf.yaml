@@ -20,6 +20,7 @@
     ~/.config/ghostty: config/ghostty/.config/ghostty
     ~/.config/starship.toml: config/starship/.config/starship.toml
     ~/.config/zed: config/zed/.config/zed
+    ~/Library/Application Support/Code/User/profiles/default.code-profile: config/vscode/default.code-profile
     ~/Documents/Raycast Scripts: config/raycast
     ~/.gitconfig: config/git/.gitconfig
     ~/.config/git/ignore: config/git/.config/git/ignore

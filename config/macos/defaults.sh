@@ -8,6 +8,9 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until this script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Set appearance to Dark mode
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
+
 # Disable audio feedback when volume is changed
 defaults write com.apple.sound.beep.feedback -bool false
 

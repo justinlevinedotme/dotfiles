@@ -11,6 +11,7 @@ My dotfiles.
 Installs Homebrew packages, configures Touch ID sudo, git/gh, Node/Rust, runs macOS scripts (Dock, defaults), and then runs Dotbot to link files.
 
 Linked via Dotbot: Zsh, eza/fastfetch/starship/ghostty/zed configs, git config/ignore, Raycast scripts, macOS scripts.
+VS Code profile: `~/Library/Application Support/Code/User/profiles/default.code-profile` (exported profile tracked in `config/vscode`).
 
 ### What bootstrap installs/does
 - Homebrew (and taps `homebrew/cask-fonts`), then casks: Ghostty, Zed, VSCode, Raycast, Dropbox, Helium Browser, Hidden Bar, Raindrop.io, Proton Pass, Discord, Screen Studio, Setapp, Bambu Studio, Folx, Keka, OnyX, plus fonts (Geist/Geist Mono Nerd Font and a suite of popular fonts).
