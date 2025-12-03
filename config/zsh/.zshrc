@@ -1,3 +1,133 @@
+export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$ZSH/custom"
+export TERM=xterm-256color
+export DOCKER_SOCK="$HOME/.docker/run/docker.sock"
+export HOMEBREW_NO_ENV_HINTS=1
+
+# Silence Docker warnings when socket is missing
+docker() {
+  command docker "$@" 2>/dev/null
+}
+
+###############################################
+#                 PATH Setup
+###############################################
+
+# Ensure user-installed binaries take priority
+export PATH="$HOME/bin:$PATH"
+
+# Homebrew (Universal)
+if [ -d /opt/homebrew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# Intel fallback
+if [ -d /usr/local/Homebrew ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+###############################################
+#                Node / pnpm / nvm
+###############################################
+
+# pnpm home
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+# nvm setup
+export NVM_DIR="$HOME/.nvm"
+[[ -s "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh"
+[[ -s "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
+
+###############################################
+#                      Rust
+###############################################
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+###############################################
+#                     Python
+###############################################
+
+# Python framework path
+export PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:$PATH"
+
+###############################################
+#                 JavaScript Tools
+###############################################
+
+# Bun (optional)
+[ -d "$HOME/.bun/bin" ] && export PATH="$HOME/.bun/bin:$PATH"
+
+###############################################
+#                  VSCode
+###############################################
+
+# Enable "code" CLI
+if [ -x "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" ]; then
+  export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+fi
+
+###############################################
+#                   Golang (optional)
+###############################################
+
+if [ -d "$HOME/go/bin" ]; then
+  export GOPATH="$HOME/go"
+  export PATH="$GOPATH/bin:$PATH"
+fi
+
+###############################################
+#               Shell Environment
+###############################################
+
+export EDITOR="nano"
+export VISUAL="nano"
+export PAGER="less"
+
+###############################################
+#             Local Secrets Override
+###############################################
+# ~/.zshrc.local should hold:
+#   - API keys
+#   - tokens
+#   - custom machine-specific paths
+#   (Do NOT commit ~/.zshrc.local to git)
+###############################################
+
+plugins=(
+  git
+  history
+  common-aliases
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  vscode
+  brew
+  macos
+  starship
+  node
+  npm
+  yarn
+  rust
+  docker
+  bgnotify
+  zoxide
+  eza
+  fzf
+)
+
+# eza colors tuned to Ghostty palette
+export EZA_COLORS="di=34:ln=36:ex=32:or=31:mi=1;31:sn=33:bd=33:cd=33:pi=33:so=35"
+export ZOXIDE_CMD_OVERRIDE=cd
+
+source "$ZSH/oh-my-zsh.sh"
+
+# Prefer eza over ls
+alias ls='eza --icons --group-directories-first --git -1'
+alias ll='eza --icons --group-directories-first --git -l'
+alias la='eza --icons --group-directories-first --git -la'
+alias lt='eza --icons --group-directories-first --git --tree'
+
 ###############################################
 #                   Navigation
 ###############################################
@@ -141,4 +271,26 @@ alias fmml:actions="cd ~/Documents/GitHub/FMMLoader-26/.github/workflows"
 
 alias please="sudo"
 alias fuck="sudo !!"
-alias shrug='echo "¯\_(ツ)_/¯"'
+alias shrug='echo "¯\\_(ツ)_/¯"'
+
+autoload -U compinit
+compinit
+
+HISTSIZE=5000
+SAVEHIST=5000
+HISTFILE="$HOME/.zsh_history"
+
+setopt HIST_IGNORE_DUPS
+setopt HIST_VERIFY
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+
+eval "$(starship init zsh)"
+
+# Local overrides
+if [[ -f "$HOME/.zshrc.local" ]]; then
+  source "$HOME/.zshrc.local"
+fi
+
+( fastfetch )
