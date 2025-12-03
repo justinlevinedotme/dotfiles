@@ -1,0 +1,24 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- shell:
+    - command: mkdir -p "$HOME/Documents/Raycast Scripts"
+      description: Ensure Raycast scripts target exists
+    - command: git config --global core.excludesfile "$HOME/.config/git/ignore"
+      description: Set global gitignore path
+      stdout: true
+      stderr: true
+
+- link:
+    ~/.zshrc: zsh/.zshrc
+    ~/.config/eza: eza/.config/eza
+    ~/.config/fastfetch: fastfetch/.config/fastfetch
+    ~/.config/ghostty: ghostty/.config/ghostty
+    ~/.config/starship.toml: starship/.config/starship.toml
+    ~/.config/zed: zed/.config/zed
+    ~/Documents/Raycast Scripts: raycast
+    ~/.gitconfig: gitconfig/.gitconfig
+    ~/.config/git/ignore: gitconfig/.gitignore
+    ~/.macos: .macos

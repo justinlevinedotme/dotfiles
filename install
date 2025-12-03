@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+DOTBOT_DIR="dotbot"
+DOTBOT_BIN="$DOTBOT_DIR/bin/dotbot"
+CONFIG="install.conf.yaml"
+
+if [ ! -x "$DOTBOT_BIN" ]; then
+  echo "⚠️ Dotbot not found at $DOTBOT_BIN"
+  exit 1
+fi
+
+"$DOTBOT_BIN" -d . -c "$CONFIG" "$@"
