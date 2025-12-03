@@ -22,6 +22,9 @@ echo "→ Updating Homebrew..."
 brew update
 brew doctor || true
 
+# Fonts tap for font casks
+brew tap homebrew/cask-fonts 2>/dev/null || true
+
 if [[ -d "/opt/homebrew/bin" ]]; then
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -45,6 +48,34 @@ casks=(
   screen-studio
   setapp
   discord
+  font-geist-mono-nerd-font
+  font-geist
+  font-open-sans
+  font-noto-sans
+  font-roboto
+  font-roboto-mono
+  font-roboto-slab
+  font-montserrat
+  font-lato
+  font-fira-code
+  font-source-code-pro
+  font-source-sans-pro
+  font-raleway
+  font-oswald
+  font-poppins
+  font-merriweather
+  font-pt-sans
+  font-ubuntu
+  font-cuprum
+  font-oxygen
+  font-redhat
+  font-space-mono
+  font-monoid
+  font-milonga
+  font-anton
+  font-3270
+  font-abel
+  font-playfair-display
 )
 
 for app in "${casks[@]}"; do
@@ -137,8 +168,8 @@ fi
 # -----------------------------------------------------
 echo ""
 echo "🖥️ Applying macOS preferences (dock, etc.)..."
-if [ -d "$DOTFILES_DIR/macos" ]; then
-  for script in "$DOTFILES_DIR"/macos/*.sh; do
+if [ -d "$DOTFILES_DIR/config/macos" ]; then
+  for script in "$DOTFILES_DIR"/config/macos/*.sh; do
     [ -x "$script" ] || continue
     echo "→ Running ${script##*/}"
     "$script" || echo "⚠️ ${script##*/} failed"

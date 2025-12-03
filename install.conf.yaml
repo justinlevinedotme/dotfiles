@@ -3,6 +3,8 @@
       create: true
       relink: true
 
+- clean: ['~']
+
 - shell:
     - command: mkdir -p "$HOME/Documents/Raycast Scripts"
       description: Ensure Raycast scripts target exists
@@ -12,13 +14,12 @@
       stderr: true
 
 - link:
-    ~/.zshrc: zsh/.zshrc
-    ~/.config/eza: eza/.config/eza
-    ~/.config/fastfetch: fastfetch/.config/fastfetch
-    ~/.config/ghostty: ghostty/.config/ghostty
-    ~/.config/starship.toml: starship/.config/starship.toml
-    ~/.config/zed: zed/.config/zed
-    ~/Documents/Raycast Scripts: raycast
-    ~/.gitconfig: gitconfig/.gitconfig
-    ~/.config/git/ignore: gitconfig/.gitignore
-    ~/.macos: .macos
+    ~/.zshrc: config/zsh/.zshrc
+    ~/.config/eza: config/eza/.config/eza
+    ~/.config/fastfetch: config/fastfetch/.config/fastfetch
+    ~/.config/ghostty: config/ghostty/.config/ghostty
+    ~/.config/starship.toml: config/starship/.config/starship.toml
+    ~/.config/zed: config/zed/.config/zed
+    ~/Documents/Raycast Scripts: config/raycast
+    ~/.gitconfig: config/git/.gitconfig
+    ~/.config/git/ignore: config/git/.config/git/ignore

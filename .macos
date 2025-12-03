@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# Thanks to Mathias Bynens for lots of inspiration
-# 
-
-sudo nvram SystemAudioVolume=" "
