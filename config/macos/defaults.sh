@@ -1,94 +1,130 @@
-#!bin/sh
+#!/bin/sh
 # Thanks to webpro for parts of this script
 
+echo "🖥️  Configuring macOS System Defaults..."
+echo ""
+
+echo "→ Closing System Preferences if open..."
 osascript -e 'tell application "System Preferences" to quit'
-# Ask for the administrator password upfront
+
+echo "→ Requesting sudo access..."
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until this script has finished
+echo "→ Starting sudo keep-alive background process..."
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Set appearance to Dark mode
+echo ""
+echo "⚙️  Applying System Preferences..."
+echo ""
+
+echo "→ Setting appearance to Dark mode..."
 osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
 
-# Disable audio feedback when volume is changed
+echo "→ Disabling audio feedback when volume is changed..."
 defaults write com.apple.sound.beep.feedback -bool false
 
-# Disable the sound effects on boot
+echo "→ Disabling sound effects on boot..."
 sudo nvram SystemAudioVolume=" "
 sudo nvram StartupMute=%01
 
-# Menu bar: show battery percentage
+echo "→ Showing battery percentage in menu bar..."
 defaults write com.apple.menuextra.battery ShowPercent YES
 
-# Expand save panel by default
+echo "→ Expanding save panel by default..."
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
-# Expand print panel by default
+echo "→ Expanding print panel by default..."
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
-# Save to disk (not to iCloud) by default
+echo "→ Setting default save location to disk (not iCloud)..."
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-# Automatically quit printer app once the print jobs complete
+echo "→ Auto-quit printer app when print jobs complete..."
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-# Disable the “Are you sure you want to open this application?” dialog
+echo "→ Disabling 'Are you sure you want to open this?' dialog..."
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-# Disable the crash reporter
+echo "→ Disabling crash reporter dialog..."
 defaults write com.apple.CrashReporter DialogType -string "none"
 
-# Turn off keyboard illumination when computer is not used for 5 minutes
+echo "→ Setting keyboard illumination timeout to 5 minutes..."
 defaults write com.apple.BezelServices kDimTime -int 300
 
-# Enable tap to click for this user and for the login screen
+echo "→ Enabling tap to click on trackpad..."
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-#instantly ask for passowrd after sleep or screen saver begins
+echo "→ Requiring password immediately after sleep/screensaver..."
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Keep folders on top when sorting by name
+echo ""
+echo "📁 Configuring Finder..."
+echo ""
+
+echo "→ Keeping folders on top when sorting by name..."
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
-# When performing a search, search the current folder by default
+echo "→ Setting default search scope to current folder..."
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-# Disable the warning when changing a file extension
+echo "→ Disabling file extension change warning..."
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Avoid creating .DS_Store files on network or USB volumes
+echo "→ Preventing .DS_Store files on network/USB volumes..."
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
-# Disable the warning before emptying the Trash
+echo "→ Disabling empty Trash warning..."
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-# “General”, “Open with”, and “Sharing & Permissions”
+echo "→ Expanding Finder info panes by default..."
 defaults write com.apple.finder FXInfoPanesExpanded -dict General -bool true OpenWith -bool true Privileges -bool true
+
+echo ""
+echo "🎯 Configuring Dock..."
+echo ""
+
+echo "→ Hiding recent apps from Dock..."
 defaults write com.Apple.Dock show-recents -bool false
 
+echo ""
+echo "📊 Configuring Activity Monitor..."
+echo ""
 
-# Show the main window when launching Activity Monitor
+echo "→ Showing main window on launch..."
 defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
 
-# Visualize CPU usage in the Activity Monitor Dock icon
+echo "→ Setting Dock icon to show CPU usage..."
 defaults write com.apple.ActivityMonitor IconType -int 5
 
-# Show all processes in Activity Monitor
+echo "→ Showing all processes by default..."
 defaults write com.apple.ActivityMonitor ShowCategory -int 0
 
-# Sort Activity Monitor results by CPU usage
+echo "→ Sorting by CPU usage..."
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
 
+echo ""
+echo "🖱️  Configuring Trackpad..."
+echo ""
+
+echo "→ Setting natural scroll direction to OFF..."
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+echo ""
+echo "🔄 Restarting affected applications..."
+echo ""
 
 for app in "Address Book" "Calendar" "Contacts" "Dock" "Finder" "Mail" "Safari" "SystemUIServer" "iCal"; do
-  killall "${app}" &> /dev/null
+  echo "→ Restarting ${app}..."
+  killall "${app}" &> /dev/null || echo "   (${app} not running)"
 done
+
+echo ""
+echo "✅ macOS defaults configuration complete!"

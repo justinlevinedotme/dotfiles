@@ -12,4 +12,4 @@ if [ ! -x "$DOTBOT_BIN" ]; then
   exit 1
 fi
 
-"$DOTBOT_BIN" -d . -c "$CONFIG" "$@"
+"$DOTBOT_BIN" -d . -c "$CONFIG" --plugin-dir dotbot-duti "$@"

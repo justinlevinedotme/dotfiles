@@ -8,69 +8,69 @@ $character\
 
 continuation_prompt = "… "
 [character]
-success_symbol = "[ 󰘍](bold white) "
-error_symbol = "[](bold red) "
+success_symbol = "[ 󰘍](bold fg:#ededed) "
+error_symbol = "[](bold fg:#e46d69) "
 
 # ─────────── Hostname (clean / subtle) ───────────
 [hostname]
 ssh_only = true
-format = "[$hostname](fg:#999999) "
+format = "[$hostname](fg:#a1a1a1) "
 disabled = false
 
 # ─────────── Directory (Vercel-black + sharp edges) ───────────
 [directory]
-style = "bold fg:#ffffff"
+style = "bold fg:#ededed"
 format = "[$path]($style) "
 truncation_length = 3
 truncate_to_repo = true
-read_only = " "
-read_only_style = "fg:#777777"
+read_only = " "
+read_only_style = "fg:#676767"
 
 # ─────────── Git Branch (clean, gray, subtle) ───────────
 [git_branch]
-symbol = " "
-format = "[$symbol$branch](fg:#999999) "
+symbol = " "
+format = "[$symbol$branch](fg:#a1a1a1) "
 truncation_length = 15
 truncation_symbol = ""
 
 # ─────────── Git Status (simple, monochrome) ───────────
 [git_status]
-style = "fg:#666666"
+style = "fg:#676767"
 format = "([$all_status$ahead_behind]($style)) "
 
 # ─────────── Git State (rebase/merge indicators) ───────────
 [git_state]
-format = "([$state( $progress_current of $progress_total)])(fg:#888888) "
+format = "([$state( $progress_current of $progress_total)])(fg:#a1a1a1) "
 
 # ─────────── Command Duration (subtle right-aligned utility) ───────────
 [cmd_duration]
 min_time = 200
-format = "[⏱ $duration](fg:#777777) "
+format = "[⏱ $duration](fg:#676767) "
 
 # ─────────—— Language Runtimes (show only when needed) ─────────——
 [nodejs]
 format = "node $version "
-style = "fg:#999999"
+style = "fg:#a1a1a1"
 
 [python]
 format = "py $version "
-style = "fg:#999999"
+style = "fg:#a1a1a1"
 
 [rust]
 format = "rust $version "
-style = "fg:#999999"
+style = "fg:#a1a1a1"
 
 [golang]
 format = "go $version "
-style = "fg:#999999"
+style = "fg:#a1a1a1"
 
 # All other languages are disabled for Vercel minimalism.
 # Enable only what you actually use.
 
 [docker_context]
-symbol = " "
+symbol = " "
 format = "docker "
-style = "fg:#888888"
+style = "fg:#a1a1a1"
 
 [kubernetes]
 disabled = true
@@ -92,11 +92,11 @@ disabled = true
 disabled = true
 [status]
 disabled = false
-format = "[✘ $status](fg:#ff5555) "
+format = "[✘ $status](fg:#e46d69) "
 
 [jobs]
 disabled = false
-style = "fg:#777777"
+style = "fg:#676767"
 symbol = "• "
 
 [container]

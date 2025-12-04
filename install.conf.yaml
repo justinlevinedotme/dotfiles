@@ -3,7 +3,7 @@
       create: true
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - shell:
     - command: mkdir -p "$HOME/Documents/Raycast Scripts"
@@ -21,6 +21,10 @@
     ~/.config/starship.toml: config/starship/.config/starship.toml
     ~/.config/zed: config/zed/.config/zed
     ~/Library/Application Support/Code/User/profiles/default.code-profile: config/vscode/default.code-profile
+    ~/Library/Application Support/Code/User/settings.json: config/vscode/.config/Code/User/settings.json
     ~/Documents/Raycast Scripts: config/raycast
     ~/.gitconfig: config/git/.gitconfig
     ~/.config/git/ignore: config/git/.config/git/ignore
+
+- duti:
+    file: Dutifile

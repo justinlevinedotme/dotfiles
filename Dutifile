@@ -1,0 +1,109 @@
+# Dutifile - macOS File Associations
+# Format: <bundle_id> <uti/extension/mime_type> <role>
+# Roles: all, viewer, editor, shell, none
+#
+# IMPORTANT: macOS requires applications to be launched at least once before
+# they can be registered as default handlers. If you get "error -54" when
+# running ./install, launch each app once, then run ./install again.
+
+# ══════════════════════════════════════════════════════
+# Web Browser - Helium
+# ══════════════════════════════════════════════════════
+net.imput.helium public.html all
+net.imput.helium public.xhtml all
+net.imput.helium public.url all
+net.imput.helium http all
+net.imput.helium https all
+
+# ══════════════════════════════════════════════════════
+# Terminal - Ghostty
+# ══════════════════════════════════════════════════════
+com.mitchellh.ghostty public.shell-script all
+
+# ══════════════════════════════════════════════════════
+# Code Editor - Zed (primary)
+# ══════════════════════════════════════════════════════
+dev.zed.Zed public.source-code all
+dev.zed.Zed public.script all
+dev.zed.Zed public.plain-text all
+
+# JavaScript/TypeScript
+dev.zed.Zed .js all
+dev.zed.Zed .jsx all
+dev.zed.Zed .ts all
+dev.zed.Zed .tsx all
+dev.zed.Zed .mjs all
+dev.zed.Zed .cjs all
+
+# Web
+dev.zed.Zed .html all
+dev.zed.Zed .htm all
+dev.zed.Zed .css all
+dev.zed.Zed .scss all
+dev.zed.Zed .sass all
+dev.zed.Zed .less all
+
+# Config files
+dev.zed.Zed .json all
+dev.zed.Zed .jsonc all
+dev.zed.Zed .yaml all
+dev.zed.Zed .yml all
+dev.zed.Zed .toml all
+dev.zed.Zed .xml all
+dev.zed.Zed .ini all
+dev.zed.Zed .conf all
+dev.zed.Zed .config all
+
+# Documentation
+dev.zed.Zed .md all
+dev.zed.Zed .markdown all
+dev.zed.Zed .txt all
+dev.zed.Zed .rst all
+
+# Shell scripts
+dev.zed.Zed .sh all
+dev.zed.Zed .bash all
+dev.zed.Zed .zsh all
+
+# Rust
+dev.zed.Zed .rs all
+dev.zed.Zed .toml all
+
+# Python
+dev.zed.Zed .py all
+dev.zed.Zed .pyw all
+dev.zed.Zed .pyx all
+
+# Go
+dev.zed.Zed .go all
+dev.zed.Zed .mod all
+dev.zed.Zed .sum all
+
+# Ruby
+dev.zed.Zed .rb all
+dev.zed.Zed .rake all
+dev.zed.Zed .gemspec all
+
+# C/C++
+dev.zed.Zed .c all
+dev.zed.Zed .h all
+dev.zed.Zed .cpp all
+dev.zed.Zed .cc all
+dev.zed.Zed .cxx all
+dev.zed.Zed .hpp all
+
+# Other common dev files
+dev.zed.Zed .gitignore all
+dev.zed.Zed .gitattributes all
+dev.zed.Zed .editorconfig all
+dev.zed.Zed .env all
+dev.zed.Zed .eslintrc all
+dev.zed.Zed .prettierrc all
+dev.zed.Zed Dockerfile all
+dev.zed.Zed Makefile all
+
+# ══════════════════════════════════════════════════════
+# VS Code (alternative for specific files if needed)
+# ══════════════════════════════════════════════════════
+# Uncomment these if you want VS Code for specific types
+# com.microsoft.VSCode .code-workspace all
