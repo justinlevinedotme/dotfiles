@@ -80,17 +80,9 @@ casks=(
   screen-studio
   setapp
   discord
+  rightfont
   font-geist-mono-nerd-font
   font-geist
-  font-open-sans
-  font-noto-sans
-  font-roboto
-  font-roboto-mono
-  font-roboto-slab
-  font-montserrat
-  font-lato
-  font-fira-code
-  font-fira-mono
 )
 
 echo "📦 Installing ${#casks[@]} GUI applications and fonts..."
