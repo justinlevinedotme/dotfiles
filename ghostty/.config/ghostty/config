@@ -1,3 +1,7 @@
+# --- Font ---
+font-family = GeistMono Nerd Font Mono
+font-size = 14
+
 # --- Vercel-ish / Geist-ish palette ---
 palette = 0=#000000
 palette = 1=#e46d69
