@@ -58,24 +58,7 @@ casks=(
   font-montserrat
   font-lato
   font-fira-code
-  font-source-code-pro
-  font-source-sans-pro
-  font-raleway
-  font-oswald
-  font-poppins
-  font-merriweather
-  font-pt-sans
-  font-ubuntu
-  font-cuprum
-  font-oxygen
-  font-redhat
-  font-space-mono
-  font-monoid
-  font-milonga
-  font-anton
-  font-3270
-  font-abel
-  font-playfair-display
+  font-fira-mono
 )
 
 for app in "${casks[@]}"; do
