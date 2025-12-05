@@ -81,6 +81,7 @@ casks=(
   setapp
   discord
   rightfont
+  docker
   font-geist-mono-nerd-font
   font-geist
 )

@@ -245,5 +245,6 @@
   },
   "githubLocalActions.dockerDesktopPath": "/Applications/Docker.app",
   "claudeCode.preferredLocation": "panel",
-  "http.systemCertificatesNode": false
+  "http.systemCertificatesNode": false,
+  "window.newWindowProfile": "Default"
 }
