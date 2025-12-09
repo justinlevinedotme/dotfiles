@@ -1,0 +1,46 @@
+# ~/.config/eza/theme.yml
+# Minimal, mostly monochrome with just a bit of status color
+
+filekinds:
+  normal:
+    foreground: Default
+  directory:
+    foreground: BrightBlue
+    is_bold: true
+  symlink:
+    foreground: BrightCyan
+  executable:
+    foreground: BrightGreen
+    is_bold: true
+
+perms:
+  user_read:
+    foreground: BrightWhite
+  user_write:
+    foreground: BrightYellow
+  user_execute_file:
+    foreground: BrightGreen
+  other_write:
+    foreground: BrightRed
+
+git:
+  new:
+    foreground: BrightGreen
+  modified:
+    foreground: BrightYellow
+  deleted:
+    foreground: BrightRed
+  ignored:
+    foreground: BrightBlack
+
+size:
+  large:
+    foreground: BrightRed
+  medium:
+    foreground: BrightYellow
+  small:
+    foreground: BrightGreen
+
+timestamps:
+  modified:
+    foreground: BrightWhite

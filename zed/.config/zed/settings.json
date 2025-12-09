@@ -1,0 +1,160 @@
+{
+  "edit_predictions": {
+    "disabled_globs": []
+  },
+  "formatter": "prettier",
+  "context_servers": {
+    "browser-tools-context-server": {
+      "enabled": true,
+      "settings": {}
+    },
+    "mcp-server-github": {
+      "enabled": true,
+      "settings": {
+        "github_personal_access_token": "${env:GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "mcp-server-context7": {
+      "enabled": true,
+      "settings": {
+        "context7_api_key": "${env:CONTEXT7_API_KEY}"
+      }
+    }
+  },
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "git_panel": {
+    "dock": "left",
+    "button": true,
+    "fallback_branch_name": "main"
+  },
+  "title_bar": {
+    "show_menus": true,
+    "show_branch_icon": true
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Colored Zed Icons Theme Dark"
+  },
+  "theme": {
+    "mode": "system",
+    "light": "Vercel Light",
+    "dark": "Vercel Dark"
+  },
+  "base_keymap": "VSCode",
+  "ui_font_size": 16,
+  "buffer_font_family": "GeistMono Nerd Font Mono",
+  "buffer_font_size": 15,
+  "tab_size": 2,
+  "hard_tabs": false,
+  "soft_wrap": "none",
+  "preferred_line_length": 80,
+  "current_line_highlight": "line",
+  "wrap_guides": [80],
+  "show_whitespaces": "selection",
+  "indent_guides": {
+    "enabled": true
+  },
+  "scroll_sensitivity": 1,
+  "fast_scroll_sensitivity": 5,
+  "vertical_scroll_margin": 3,
+  "cursor_blink": true,
+  "cursor_shape": "bar",
+  "selection_highlight": true,
+  "rounded_selection": true,
+  "gutter": {
+    "line_numbers": true,
+    "folds": true
+  },
+  "minimap": {
+    "show": "never"
+  },
+  "sticky_scroll": {
+    "enabled": true
+  },
+  "scrollbar": {
+    "axes": {
+      "horizontal": false,
+      "vertical": true
+    }
+  },
+  "status_bar": {
+    "experimental.show": true
+  },
+  "tab_bar": {
+    "show": true,
+    "show_tab_bar_buttons": true
+  },
+  "tabs": {
+    "file_icons": true,
+    "close_position": "right",
+    "show_close_button": "hover",
+    // valid values: "history" | "neighbour" | "left_neighbour"
+    "activate_on_close": "history",
+    "git_status": false
+  },
+  "preview_tabs": {
+    "enabled": true,
+    "enable_preview_from_file_finder": true,
+    "enable_preview_from_code_navigation": true
+  },
+  "max_tabs": 20,
+  "format_on_save": "on",
+  "remove_trailing_whitespace_on_save": false,
+  "ensure_final_newline_on_save": true,
+
+  "search": {
+    "include_ignored": true
+  },
+
+  "file_scan_exclusions": [
+    "**/.DS_Store",
+    "**/.git",
+    "**/.hg",
+    "**/.svn",
+    "**/.tmp",
+    "**/node_modules",
+    "**/Thumbs.db",
+    "**/dist"
+  ],
+
+  "project_panel": {
+    "git_status": false,
+    "auto_fold_dirs": true,
+    "auto_reveal_entries": true,
+    "hide_gitignore": true,
+    "show_diagnostics": "errors"
+  },
+
+  "outline_panel": {
+    "dock": "right",
+    "git_status": false
+  },
+
+  "terminal": {
+    "font_family": "Geist Mono",
+    "font_size": 13,
+    "line_height": "comfortable",
+    "cursor_shape": "block",
+    "blinking": "on",
+    "copy_on_select": true,
+    "max_scroll_history_lines": 5000,
+    "option_as_meta": true
+  },
+
+  "file_types": {
+    "markdown": ["*.mdx"]
+  },
+
+  "auto_indent_on_paste": false,
+  "use_on_type_format": false
+}
