@@ -1,0 +1,16 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "shift+cmd+v",
+    "command": "-asciidoc.showPreview",
+    "when": "editorLangId == 'asciidoc'"
+},
+{
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "\u001b\r"
+    },
+    "when": "terminalFocus"
+}
+]
