@@ -8,9 +8,8 @@ $character\
 
 continuation_prompt = "… "
 [character]
-success_symbol = "[ 󰘍](bold white) "
-error_symbol = "[](bold red) "
-
+success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[✗](bold red)"         # The "error_symbol" segment is being set to "✗" with the color "bold red"
 # ─────────── Hostname (clean / subtle) ───────────
 [hostname]
 ssh_only = true
@@ -44,7 +43,6 @@ format = "([$state( $progress_current of $progress_total)])(fg:#888888) "
 
 # ─────────── Command Duration (subtle right-aligned utility) ───────────
 [cmd_duration]
-min_time = 200
 format = "[⏱ $duration](fg:#777777) "
 
 # ─────────—— Language Runtimes (show only when needed) ─────────——
@@ -83,9 +81,11 @@ disabled = true
 [azure]
 disabled = true
 [battery]
-disabled = true
+disabled = false
+format = "[$symbol$percentage](fg:#ffaa00) "
 [memory_usage]
-disabled = true
+disabled = false
+format = "[$symbol$used/$total]($style) "
 [package]
 disabled = true
 [shell]
@@ -101,5 +101,7 @@ symbol = "• "
 
 [container]
 disabled = true
+
 [sudo]
-disabled = true
+disabled = false
+

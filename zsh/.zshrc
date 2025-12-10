@@ -143,14 +143,23 @@ plugins=(
 # or=orphan (red), mi=missing (bright red), sn=socket (yellow)
 export EZA_COLORS="di=34:ln=36:ex=32:or=31:mi=1;31:sn=33:bd=33:cd=33:pi=33:so=35"
 export ZOXIDE_CMD_OVERRIDE=cd
+eval "$(zoxide init zsh)"
+
+zi() {
+    local dir
+    dir=$(zoxide query -l | fzf --height 40% --reverse --prompt="jump to: ") && cd "$dir"
+}
 
 source "$ZSH/oh-my-zsh.sh"
 
 # Prefer eza over ls
-alias ls='eza --icons --group-directories-first --git -1'
-alias ll='eza --icons --group-directories-first --git -l'
-alias la='eza --icons --group-directories-first --git -la'
-alias lt='eza --icons --group-directories-first --git --tree'
+alias ls="eza --icons --group-directories-first"
+alias l="eza --icons --group-directories-first"
+alias ll="eza -l --icons --group-directories-first --links"
+alias la="eza -la --icons --group-directories-first --links"
+alias lt="eza -T --icons --group-directories-first"
+alias llt="eza -lT --icons --group-directories-first --links"
+alias lf="eza -l --no-user --no-time --no-permissions --icons"
 
 ###############################################
 #                   Navigation

@@ -1,5 +1,8 @@
 # 50-character subject line
-#
+# feat|bug|chore|fix|refactor|style|test
+
+#                                     50CHARS ->#
+
 # 72-character wrapped longer description. This should answer:
 #
 # * Why was this change necessary?
