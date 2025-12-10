@@ -13,11 +13,11 @@
       "top": 1,
       "left": 2,
       "right": 2,
-      "bottom": 1,
-    },
+      "bottom": 1
+    }
   },
   "display": {
-    "separator": "  ",
+    "separator": "  "
   },
   "modules": [
     "break",
@@ -25,36 +25,36 @@
     {
       "type": "os",
       "key": "os    ",
-      "keyColor": "33", // = color3
+      "keyColor": "33" // = color3
     },
     {
       "type": "kernel",
       "key": "kernel",
-      "keyColor": "33",
+      "keyColor": "33"
     },
     {
       "type": "host",
       "format": "{5} {1}",
       "key": "host  ",
-      "keyColor": "33",
+      "keyColor": "33"
     },
     {
       "type": "packages",
       "format": "{} (pacman)",
       "key": "pkgs  ",
-      "keyColor": "33",
+      "keyColor": "33"
     },
     {
       "type": "uptime",
       "format": "{2}h {3}m",
       "key": "uptime",
-      "keyColor": "33",
+      "keyColor": "33"
     },
     {
       "type": "memory",
       "key": "memory",
-      "keyColor": "33",
+      "keyColor": "33"
     },
-    "break",
-  ],
+    "break"
+  ]
 }
