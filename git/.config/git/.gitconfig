@@ -10,4 +10,4 @@
 	excludesfile = /Users/justin/.config/git/.gitignore_global
 	editor = code
 [commit]
-  template = ~/users/justin/.config/git/.gitmessage
+  template = /Users/justin/.config/git/.gitmessage
