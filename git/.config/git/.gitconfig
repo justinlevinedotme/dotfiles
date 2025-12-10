@@ -9,3 +9,5 @@
 [core]
 	excludesfile = /Users/justin/.config/git/.gitignore_global
 	editor = code
+[commit]
+  template = ~/users/justin/.config/git/.gitmessage
